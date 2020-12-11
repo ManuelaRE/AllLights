@@ -4,24 +4,13 @@ import Home from '../../components/Home'
 import ShoppingBag from '../../components/ShoppingBag'
 
 const Routes = (props) => {
-    const {inventory} = props;
-    const {inBasket, quantityInBasket} = props.inventory;
-
-
-    const addToBasket = () => {
-        inventory.inBasket = !inBasket;
-    }
-
-    const addNumberofItems = (number) => {
-        inventory.quantityInBasket = number;
-    }
-
+    const {inventory, addToBasket, count, setCount, cart} = props;
 
 
     return (
         <Router>
-            <Home path="/" inventory={inventory} addToBasket={addToBasket} addNumberofItems={addNumberofItems}/>
-            <ShoppingBag path="/shoppingCart" inventory={inventory}/>
+            <Home path="/" inventory={inventory} addToBasket={addToBasket} count={count} setCount={setCount} />
+            <ShoppingBag path="/shoppingCart" count={count} cart={cart}/>
         </Router>
     )
 }
