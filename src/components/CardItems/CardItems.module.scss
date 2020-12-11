@@ -1,5 +1,5 @@
 .card {
-    border: 2px solid red;
+    // border: 2px solid red;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -13,20 +13,23 @@
     flex-basis: calc(50% - 8px);
     max-width: calc(20% - 8px);
 
+    &:hover {
+        background-color: lighten($color: #FFD7CB, $amount: 5%);
+    }
 
     img{
         height: auto;
         max-width: 100%;
-        margin: 1%;
+        margin:  0 1%;
         border-radius: 8px;
     }
 
-    .card_description{
+    .card_description {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 1%;
+        margin: 2%;
 
         h1 {
             font-size: 20px;
@@ -49,6 +52,26 @@
         .card_basket{
             margin: 2% 0;
             padding: 1%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
+        button {
+            margin: 0 5%;
+            width: auto;
+            height: 30px;
+            border: 1px solid #3F3D56;
+            background: #3F3D56;
+            text-align: center;
+            color: #FDF7FA;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+    
+            &:hover {
+                background-color: darken($color: #3F3D56, $amount: 5%);
+            }
         }
     }
 }

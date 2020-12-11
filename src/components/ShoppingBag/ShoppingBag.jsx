@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './ShoppingBag.module.scss'
 import FeedbackPanel from '../FeedbackPanel';
 import ShoppingBagItems from '../ShoppingBagItems';
+import Navbar from '../Navbar';
 
 const ShoppingBag = (props) => {
     const { cart } = props;
@@ -18,14 +19,18 @@ const ShoppingBag = (props) => {
 
     const contentJsx = (cart.length > 0) ? (
         <>
+            <Navbar />
             <ShoppingBagItems cart={cart} total={total} />
             <h1 className={styles.shoppingBag_total}>Total: £ {total}</h1>
         </>
     ) : (
+        <>
+            <Navbar />
             <FeedbackPanel
                 header="No items in the basket"
                 text="Try returning to home and add your favourites in the basket"
             />
+        </>
         );
 
     return <section className={styles.shoppingBag}>{contentJsx}</section>

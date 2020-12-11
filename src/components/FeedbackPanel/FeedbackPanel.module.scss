@@ -1,0 +1,13 @@
+.feedback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    text-align: center;
+
+    img {
+        padding-top: 2%;
+        width: 40%;
+    }
+}

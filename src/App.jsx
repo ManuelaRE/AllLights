@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.module.scss';
-import Navbar from './components/Navbar';
 import Routes from './containers/routes';
 import inventory from './data/inventory';
 
@@ -27,7 +26,6 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
       <Routes inventory={inventory} addToBasket={addToBasket} cart={cart} setCount={setCount} />
     </div>
   );

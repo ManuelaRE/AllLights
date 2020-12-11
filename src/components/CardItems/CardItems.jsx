@@ -33,7 +33,7 @@ const CardItems = (props) => {
                 <h3>£ {price}</h3>
                 <div className={styles.card_basket}>
                     <button onClick={() => { dispatch({ type: 'decrement'}); }}> - </button>
-                    <span>{state.count}</span>
+                    <span><h1>{state.count}</h1></span>
                     <button onClick={() => { dispatch({ type: 'increment' }); }}> + </button>
                 </div>
                 <button onClick={() => addToBasket(item, state.count)}>Add to basket</button>

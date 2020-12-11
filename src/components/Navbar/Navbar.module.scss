@@ -1,7 +1,22 @@
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    border: 2px solid red;
+    margin: 0 2%;
+    
+
+    img{
+        width: 8%;
+    }
+
+    .navbar_icons{
+        font-size: 50px;
+
+        .navbar_icon {
+            padding: 0 8%
+        }
+    }
+
+
 }
