@@ -1,6 +1,6 @@
 # Shopping Cart React App
 
-The project is hosted at: [link]().
+The project is hosted at: [link](https://ammonite-test.herokuapp.com/).
 
 ## About the project
 
