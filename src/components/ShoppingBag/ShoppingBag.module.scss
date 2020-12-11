@@ -1,7 +1,20 @@
+.greet{
+    text-align: right;
+    margin-right: 5%;
+}
+
 .shoppingBag {
     .shoppingBag_total {
         font-size: 45px;
         text-align: right;
         margin: 1% 15% 3% 0;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .shoppingBag {
+        .shoppingBag_total {
+            font-size: 35px;
+        }
     }
 }

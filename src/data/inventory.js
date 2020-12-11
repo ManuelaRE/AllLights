@@ -34,7 +34,7 @@ const inventory = [
     {
         'idItem': 1005,
         'strName': 'Demetrius 138cm LED Arched Floor Lamp',
-        'image': 'https://secure.img1-fg.wfcdn.com/im/45106415/resize-h800-w800%5Ecompr-r85/1080/108006137/Demetrius+138cm+LED+Arched+Floor+Lamp.jpg',
+        'image': 'https://secure.img1-fg.wfcdn.com/im/89102162/resize-h800-w800%5Ecompr-r85/1168/116883486/Trey+217cm+Reading+Floor+Lamp.jpg',
         'strDescription': 'A streamlined and modern choice of reading or task light, this standing lamp is especially well suited for positioning next to an armchair or sofa. It has a contemporary design and is made from metal with a sturdy, round base.',
         'price': 109.50,
         'itemsInStock': 15,

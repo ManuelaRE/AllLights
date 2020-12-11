@@ -28,3 +28,25 @@
     }
 
 }
+
+@media only screen and (max-width: 1000px) {
+    .shoppingBag {
+        margin: 2%;
+        img {
+            height: 150px;
+            margin: 1%;
+        }
+
+        .shoppingBag_details{
+            margin: 1%;
+            h1, h2 {
+                font-size: 15px;
+            }
+        }
+
+        h3 {
+            margin: 1%;
+            font-size: 15px;
+        }
+    }
+}

@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import './App.module.scss';
 import Routes from './containers/routes';
+
+import { UserProvider } from "./context/userContext";
+
 import inventory from './data/inventory';
 
 function App() {
@@ -17,17 +20,14 @@ function App() {
     }
   }
 
-  // useEffect(() => {
-  // }, [count])
-
-  // useEffect(() => {
-  // }, [cart])
-
 
   return (
-    <div className="App">
-      <Routes inventory={inventory} addToBasket={addToBasket} cart={cart} setCount={setCount} />
-    </div>
+    <UserProvider>
+      <div className="App">
+        <Routes inventory={inventory} addToBasket={addToBasket} cart={cart} setCount={setCount} />
+      </div>
+    </UserProvider>
+
   );
 }
 

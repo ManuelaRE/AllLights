@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './ShoppingBag.module.scss'
 import FeedbackPanel from '../FeedbackPanel';
 import ShoppingBagItems from '../ShoppingBagItems';
 import Navbar from '../Navbar';
+import { UserContext } from "../../context/userContext";
 
 const ShoppingBag = (props) => {
+    const {user} = useContext(UserContext);
     const { cart } = props;
     const [total, setTotal] = useState(0);
 
@@ -20,6 +22,7 @@ const ShoppingBag = (props) => {
     const contentJsx = (cart.length > 0) ? (
         <>
             <Navbar />
+            <h1 className={styles.greet}>Complete your purchase, {user}</h1>
             <ShoppingBagItems cart={cart} total={total} />
             <h1 className={styles.shoppingBag_total}>Total: £ {total}</h1>
         </>
