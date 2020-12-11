@@ -3,16 +3,14 @@ import styles from './CardItems.module.scss'
 
 const CardItems = (props) => {
     const { strName, image, strDescription, price } = props.item;
-    const {setCount, item, addToBasket } = props;
+    const { setCount, item, addToBasket } = props;
+
     const initialState = { count: 0 };
-
-
-
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     function reducer(state, action) {
         switch (action.type) {
             case 'increment':
-                console.log('increment was called')
                 return { count: state.count + 1 };
             case ('decrement'):
                 return (state.count > 0) ?  { count: state.count - 1 }: {count: 0} ;
@@ -20,19 +18,11 @@ const CardItems = (props) => {
                 throw new Error();
         }
     }
-
-    function Counter() {
-        const [state, dispatch] = useReducer(reducer, initialState);
-        return (
-            <div className={styles.card_basket}>
-                <button onClick={() => { dispatch({ type: 'decrement'}); setCount(state.count) }}> - </button>
-                <span>{state.count}</span>
-                <button onClick={() => { dispatch({ type: 'increment' }); setCount(state.count) }}> + </button>
-            </div>
-        )
-    }
-
-
+    
+    //This is so the count is rendered at the same time as when we increade/decrease the number of items in the basket
+    useEffect(() => {
+        setCount(initialState.count)
+    }, [initialState.count])
 
     return (
         <div className={styles.card}>
@@ -41,8 +31,12 @@ const CardItems = (props) => {
                 <h1>{strName}</h1>
                 <h2>{strDescription}</h2>
                 <h3>£ {price}</h3>
-                {Counter()}
-                <button onClick={() => addToBasket(item)}>Add to basket</button>
+                <div className={styles.card_basket}>
+                    <button onClick={() => { dispatch({ type: 'decrement'}); }}> - </button>
+                    <span>{state.count}</span>
+                    <button onClick={() => { dispatch({ type: 'increment' }); }}> + </button>
+                </div>
+                <button onClick={() => addToBasket(item, state.count)}>Add to basket</button>
             </div>
         </div>
     )

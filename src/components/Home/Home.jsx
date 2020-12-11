@@ -3,11 +3,11 @@ import CardItems from '../CardItems';
 import styles from './Home.module.scss'
 const Home = (props) => {
 
-    const {inventory, addToBasket, count, setCount} = props;
+    const {inventory, addToBasket, setCount} = props;
     return (
         <div className={styles.container}>
             {inventory.map((item) => (
-                <CardItems item={item} key={item.idItem} addToBasket={addToBasket} count={count} setCount={setCount}/>
+                <CardItems item={item} key={item.idItem} addToBasket={addToBasket} setCount={setCount}/>
             ))}
         </div>
     )
