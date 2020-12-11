@@ -4,20 +4,23 @@ import FeedbackPanel from '../FeedbackPanel';
 import ShoppingBagItems from '../ShoppingBagItems';
 
 const ShoppingBag = (props) => {
-    const { count, cart } = props;
+    const { cart, count } = props;
+
     const [total, setTotal] = useState(0);
+    console.log(cart)
 
     useEffect(() => {
         calculateTotal()
     }, []);
 
     const calculateTotal = () => {
-        cart.map(item => (item.price * count)).reduce((prev, next) => setTotal(prev + next))
+        if(cart.length === 0) return 0;
+        return cart.map(item => (item.price * count)).reduce((prev, next) => setTotal(prev + next))
     }
 
-    const contentJsx = (cart.length === 0) ? (
+    const contentJsx = (cart.length > 0) ? (
         <>
-            <ShoppingBagItems cart={cart} count={count} total={total}/>
+            <ShoppingBagItems cart={cart} total={total} count={count}/>
             <h1 className={styles.shoppingBag_total}>Total: £ {total}</h1>
         </>
     ) : (

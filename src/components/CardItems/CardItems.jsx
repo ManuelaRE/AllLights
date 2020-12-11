@@ -1,20 +1,37 @@
-import React from 'react';
+import React, { useReducer, useEffect } from 'react';
 import styles from './CardItems.module.scss'
 
 const CardItems = (props) => {
     const { strName, image, strDescription, price } = props.item;
-    const { count, setCount, item, addToBasket } = props;
+    const {setCount, item, addToBasket } = props;
+    const initialState = { count: 0 };
 
 
-    const reduceCount = () => {
-        if (count > 0) {
-            setCount(prevCount => prevCount - 1);
+
+
+    function reducer(state, action) {
+        switch (action.type) {
+            case 'increment':
+                console.log('increment was called')
+                return { count: state.count + 1 };
+            case ('decrement'):
+                return (state.count > 0) ?  { count: state.count - 1 }: {count: 0} ;
+            default:
+                throw new Error();
         }
     }
 
-    const increaseCount = () => {
-        setCount(prevCount => prevCount + 1);
+    function Counter() {
+        const [state, dispatch] = useReducer(reducer, initialState);
+        return (
+            <div className={styles.card_basket}>
+                <button onClick={() => { dispatch({ type: 'decrement'}); setCount(state.count) }}> - </button>
+                <span>{state.count}</span>
+                <button onClick={() => { dispatch({ type: 'increment' }); setCount(state.count) }}> + </button>
+            </div>
+        )
     }
+
 
 
     return (
@@ -24,11 +41,7 @@ const CardItems = (props) => {
                 <h1>{strName}</h1>
                 <h2>{strDescription}</h2>
                 <h3>£ {price}</h3>
-                <div className={styles.card_basket}>
-                    <button onClick={reduceCount}>-</button>
-                    <span>{count}</span>
-                    <button onClick={increaseCount}>+</button>
-                </div>
+                {Counter()}
                 <button onClick={() => addToBasket(item)}>Add to basket</button>
             </div>
         </div>

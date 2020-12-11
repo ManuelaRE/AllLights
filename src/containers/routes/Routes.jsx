@@ -6,11 +6,10 @@ import ShoppingBag from '../../components/ShoppingBag'
 const Routes = (props) => {
     const {inventory, addToBasket, count, setCount, cart} = props;
 
-
     return (
         <Router>
-            <Home path="/" inventory={inventory} addToBasket={addToBasket} count={count} setCount={setCount} />
-            <ShoppingBag path="/shoppingCart" count={count} cart={cart}/>
+            <Home path="/" inventory={inventory} addToBasket={addToBasket} setCount={setCount} count={count}/>
+            <ShoppingBag path="/shoppingCart" cart={cart} count={count} setCount={setCount}/>
         </Router>
     )
 }

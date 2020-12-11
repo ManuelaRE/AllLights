@@ -4,21 +4,28 @@ import styles from './ShoppingBagItems.module.scss';
 
 const ShoppingBagItems = (props) => {
     const { cart, count } = props;
-    
+    console.log(cart);
+
+
     const getBasket = () => {
-        cart.map((item) => (
+
+        return cart.map((item) => (
             <div className={styles.shoppingBag} key={item.strName}>
                 <img src={item.image} alt={item.strName}></img>
                 <div className={styles.shoppingBag_details}>
                     <h1>{item.strName}</h1>
                     <h2>Quantity: {count}</h2>
                 </div>
-                <h3>£ {item.price}</h3>
+                <h3>£ {item.price * count}</h3>
             </div>
         ))
     }
     return (
-        {getBasket}
+        <>
+            {getBasket()}
+        </>
+        
+
     )
 }
 
