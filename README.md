@@ -11,6 +11,9 @@ Implementhing the increment/decrement is fairly straightforward with `useState`,
 
 I've also included a very basic example of `useContext`.
 
-## Why Next.js is better?
+## Ways to improve the project
 
-The advantage Next.js in terms of handling large amounts of data is that the resulting bundle is prerendered which makes it faaster for users.
+1. Add a database that you can maintain PstgreSQL
+2. Implement option to remove items from the shopping cart
+3. Add authentification
+4. Build payment system
